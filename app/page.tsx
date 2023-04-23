@@ -1,102 +1,81 @@
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
-import styles from './page.module.css'
+import Image from "next/image";
+import styles from "@/styles/homepage.module.css";
+import Link from "next/link";
 
-const inter = Inter({ subsets: ['latin'] })
+import hero_img from "../public/images/hero_image.png";
+import section_img from "../public/images/section-image.png";
 
-export default function Home() {
+import Stats from "@/components/Stats";
+import Button from "@/components/Button";
+import Section from "@/components/Section";
+
+// import Counter from "./compoents/nCdefaultounter";
+
+async function getIp() {
+  let data = await fetch("https://api.ipify.org/?format=json");
+  return data.json();
+}
+
+export default async function Home() {
+  let ip = await getIp();
+
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <div className="container">
+      <main>
+        <div className="main-content">
+          <h1>everyone loves cclick</h1>
+          <p>
+            Simplify your digital life with our powerful link shortening and
+            pasteing tools.
+          </p>
+          <Button type="primary">
+            <a href="#" className="btn">
+              Get Started
+            </a>
+          </Button>
         </div>
-      </div>
+        <Image src={hero_img} alt="hero" className="hero-image" />
+      </main>
 
-      <div className={styles.center}>
+      <Section>
+        <div className="section-content">
+          <h2>Save your pastes at ease.</h2>
+          <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis,
+            beatae! Eaque ad autem laboriosam qui aspernatur, quidem, odio
+            magni, dicta voluptas consequuntur dolorum earum ipsa iusto mollitia
+            nam veniam at. Illum provident expedita dolore natus dicta
+            praesentium, ab cum ullam deserunt magnam assumenda repellat. Minus
+            minima perferendis iste vel ullam?
+          </p>
+        </div>
         <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
+          src={section_img}
+          className="section-image"
+          alt="section image"
         />
-      </div>
+      </Section>
 
-      <div className={styles.grid}>
-        <a
-          href="https://beta.nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Find in-depth information about Next.js features and API.
+      <Section>
+        <div className="section-content">
+          <h2>Save your pastes at ease.</h2>
+          <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis,
+            beatae! Eaque ad autem laboriosam qui aspernatur, quidem, odio
+            magni, dicta voluptas consequuntur dolorum earum ipsa iusto mollitia
+            nam veniam at. Illum provident expedita dolore natus dicta
+            praesentium, ab cum ullam deserunt magnam assumenda repellat. Minus
+            minima perferendis iste vel ullam?
           </p>
-        </a>
+        </div>
+        <Image
+          src={section_img}
+          className="section-image"
+          alt="section image"
+        />
+      </Section>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+      <Stats />
+    </div>
+  );
 }
