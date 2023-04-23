@@ -1,0 +1,12 @@
+.btn {
+  font-size: 1.2em;
+  padding: 0.8em;
+  background: #faf9f9;
+  box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.9);
+  display: block;
+  margin-top: 1em;
+  max-width: fit-content;
+  font-family: "Helvetica", sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+}

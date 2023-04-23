@@ -1,0 +1,93 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;700&display=swap");
+
+@font-face {
+  font-family: "Helvetica";
+  src: url(/assets/fonts/Helvetica.ttf);
+}
+
+@font-face {
+  font-family: "Helvetica";
+  src: url(/assets/fonts/Helvetica-Bold.ttf);
+  font-weight: bold;
+}
+
+:root {
+  --color-primary: #eddede;
+  --color-secondary: #efabab;
+  --color-tertiary: #494450;
+
+  --color-text: #494450;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--color-primary);
+  font-family: "Barlow", sans-serif;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Helvetica", sans-serif;
+  margin-bottom: 0.5em;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 1em;
+}
+
+.line {
+  height: 1px;
+  width: 100%;
+  background-color: var(--color-tertiary);
+  margin: 1em 0;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1.5fr 0.5fr;
+  padding: 1em;
+}
+
+.main-content {
+  align-self: center;
+}
+
+.main-content p {
+  font-size: 1.2em;
+}
+
+.hero-image {
+  max-width: 500px;
+}
+
+/* Section Styles */
+.section-content {
+  align-self: center;
+}
+
+.section-image {
+  max-width: 300px;
+  max-height: 300px;
+}
+
+/* Global Fixes */
+
+button a {
+  text-decoration: none;
+  color: inherit;
+}

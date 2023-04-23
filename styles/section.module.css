@@ -1,0 +1,13 @@
+.section {
+  display: grid;
+  grid-template-columns: 1.5fr 0.5fr;
+  margin: 2em 0;
+  gap: 1em;
+}
+
+@media screen and (max-width: 768px) {
+  .section {
+    grid-template-columns: 1fr;
+    padding: 1em 0;
+  }
+}

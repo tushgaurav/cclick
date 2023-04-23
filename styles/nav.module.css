@@ -1,0 +1,42 @@
+.nav_container {
+  background-color: var(--color-secondary);
+  padding: 1em;
+}
+
+.nav {
+  /* contain */
+  max-width: 1200px;
+  margin: 0 auto;
+
+  /* style */
+  background-color: var(--color-secondary);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav_ul {
+  display: flex;
+  gap: 1em;
+  list-style: none;
+}
+
+.nav_a {
+  font-size: 0.8em;
+
+  font-family: "Helvetica", sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: black;
+}
+
+@media screen and (max-width: 768px) {
+  .nav {
+    justify-content: center;
+  }
+
+  .nav_ul {
+    display: none;
+  }
+}

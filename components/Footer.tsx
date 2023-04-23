@@ -1,0 +1,53 @@
+import styles from "@/styles/footer.module.css";
+
+import logo from "../public/logo.svg";
+import Image from "next/image";
+
+export default function Footer() {
+  return (
+    <div className={styles.footer_container}>
+      <footer className={styles.footer}>
+        <div className={styles.footer_content}>
+          <div className={styles.footer_col}>
+            <Image src={logo} alt="" className={styles.footer_logo} />
+            <h2 className={styles.h2}>
+              A <span>Prokits Digital Services</span> Product
+            </h2>
+            <p className={styles.p}>
+              cclick is a online tool that helps you to paste and share it with
+              people.
+            </p>
+          </div>
+          <div className={styles.footer_col}>
+            <ul className={styles.ul}>
+              <li className={styles.ul_li}>About Us</li>
+              <li className={styles.ul_li}>Contact</li>
+              <li className={styles.ul_li}>Social</li>
+            </ul>
+          </div>
+          <div className={styles.footer_col}>
+            <ul className={styles.ul}>
+              <li className={styles.ul_li}>Request a Feature</li>
+              <li className={styles.ul_li}>Support the Development</li>
+              <li className={styles.ul_li}>Code of Conduct</li>
+              <li className={styles.ul_li}>Pricing</li>
+              <li className={styles.ul_li}>System Status</li>
+              <li className={styles.ul_li}>Report Abuse</li>
+            </ul>
+          </div>
+        </div>
+        <div className="line"></div>
+        <div className={styles.footer_bottom}>
+          <p className={styles.bottom_p}>
+            &copy; cclick 2023 | Designed by Prokits Digital Services
+          </p>
+          <div className={styles.bottom_div}>
+            <p className={styles.bottom_p}>terms of use</p>
+            <p className={styles.bottom_p}>privacy policy</p>
+          </div>
+        </div>
+        <div id="footer-sections"></div>
+      </footer>
+    </div>
+  );
+}
