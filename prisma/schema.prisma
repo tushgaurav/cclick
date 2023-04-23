@@ -23,9 +23,16 @@ model User {
   pastes Paste[]
 }
 
+enum VISIBLITY {
+  PUBLIC
+  PRIVATE
+}
+
 model Paste {
-  id        String   @id @default(uuid())
-  createdAt DateTime @default(now())
+  id        String    @id @default(uuid())
+  createdAt DateTime  @default(now())
+  slug      String    @unique
+  visiblity VISIBLITY @default(PUBLIC)
 
   ownerId String
   owner   User   @relation(fields: [ownerId], references: [id])

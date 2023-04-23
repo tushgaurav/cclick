@@ -19,6 +19,7 @@
   display: flex;
   gap: 1em;
   list-style: none;
+  align-items: center;
 }
 
 .nav_a {

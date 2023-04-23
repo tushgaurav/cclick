@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import styles from "@/styles/footer.module.css";
 
 import logo from "../public/logo.svg";
@@ -9,7 +11,9 @@ export default function Footer() {
       <footer className={styles.footer}>
         <div className={styles.footer_content}>
           <div className={styles.footer_col}>
-            <Image src={logo} alt="" className={styles.footer_logo} />
+            <Link href="/">
+              <Image src={logo} alt="" className={styles.footer_logo} />
+            </Link>
             <h2 className={styles.h2}>
               A <span>Prokits Digital Services</span> Product
             </h2>
@@ -20,7 +24,9 @@ export default function Footer() {
           </div>
           <div className={styles.footer_col}>
             <ul className={styles.ul}>
-              <li className={styles.ul_li}>About Us</li>
+              <li className={styles.ul_li}>
+                <Link href="/about">About Us</Link>
+              </li>
               <li className={styles.ul_li}>Contact</li>
               <li className={styles.ul_li}>Social</li>
             </ul>
@@ -42,7 +48,9 @@ export default function Footer() {
             &copy; cclick 2023 | Designed by Prokits Digital Services
           </p>
           <div className={styles.bottom_div}>
-            <p className={styles.bottom_p}>terms of use</p>
+            <p className={styles.bottom_p}>
+              <Link href="/terms">terms of use</Link>
+            </p>
             <p className={styles.bottom_p}>privacy policy</p>
           </div>
         </div>

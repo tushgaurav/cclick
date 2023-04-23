@@ -41,7 +41,17 @@ h4,
 h5,
 h6 {
   font-family: "Helvetica", sans-serif;
+  margin-top: 0.5em;
   margin-bottom: 0.5em;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+p {
+  margin-bottom: 1em;
 }
 
 .container {
@@ -83,6 +93,23 @@ main {
 .section-image {
   max-width: 300px;
   max-height: 300px;
+}
+
+/* Clerk Styles */
+.cl-formButtonPrimary {
+  font-size: 14px;
+  text-transform: none;
+  background-color: #efabab;
+}
+
+.cl-formButtonPrimary:hover,
+.cl-formButtonPrimary:focus,
+.cl-formButtonPrimary:active {
+  background-color: #f28484;
+}
+
+.cl-internal-b3fm6y {
+  display: none;
 }
 
 /* Global Fixes */
