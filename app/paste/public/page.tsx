@@ -23,13 +23,9 @@ export default async function PublicPastes() {
     where: {
       visiblity: "PUBLIC",
     },
-    include: {
-      owner: true,
-    },
     take: 6,
   });
 
-  console.log(pastes);
   return (
     <div className="container">
       <h1>Public Pastes</h1>
@@ -38,6 +34,7 @@ export default async function PublicPastes() {
         <div className={styles.grid_container}>
           {pastes.map((paste) => (
             <PasteCard
+              key={paste.id}
               title={paste.name}
               description={paste.content.substring(0, 100) + "..."}
               author={paste.owner.firstName}

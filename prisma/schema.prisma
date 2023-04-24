@@ -10,19 +10,6 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User {
-  id        String   @id @default(uuid())
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  email     String  @unique
-  password  String
-  firstName String?
-  lastName  String?
-
-  pastes Paste[]
-}
-
 enum VISIBLITY {
   PUBLIC
   PRIVATE
@@ -34,11 +21,14 @@ model Paste {
   slug      String    @unique
   visiblity VISIBLITY @default(PUBLIC)
 
-  ownerId String
-  owner   User   @relation(fields: [ownerId], references: [id])
+  ownerId String?
 
   name    String?
   content String
+  views   Int     @default(0)
 
   deleted Boolean @default(false)
+
+  @@unique([ownerId, slug])
+  @@index([slug])
 }

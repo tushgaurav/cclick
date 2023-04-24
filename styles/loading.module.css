@@ -1,0 +1,13 @@
+.loading_container {
+  max-width: 700px;
+  margin: 0 auto;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+}
+
+.quote {
+  color: var(--color-secondary, #efabab);
+  text-align: center;
+  padding: 2em 0;
+}

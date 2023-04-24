@@ -11,7 +11,7 @@ export const metadata = {
 };
 
 export default async function About() {
-  // await delay(3000);
+  await delay(3000);
   return (
     <div className="container">
       <main>

@@ -9,8 +9,6 @@ import Stats from "@/components/Stats";
 import Button from "@/components/Button";
 import Section from "@/components/Section";
 
-// import Counter from "./compoents/nCdefaultounter";
-
 async function getIp() {
   let data = await fetch("https://api.ipify.org/?format=json");
   return data.json();

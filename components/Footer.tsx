@@ -25,9 +25,11 @@ export default function Footer() {
           <div className={styles.footer_col}>
             <ul className={styles.ul}>
               <li className={styles.ul_li}>
+                <Link href="/paste/public">Public Pastes</Link>
+              </li>
+              <li className={styles.ul_li}>
                 <Link href="/about">About Us</Link>
               </li>
-              <li className={styles.ul_li}>Contact</li>
               <li className={styles.ul_li}>Social</li>
             </ul>
           </div>
@@ -37,7 +39,9 @@ export default function Footer() {
               <li className={styles.ul_li}>Support the Development</li>
               <li className={styles.ul_li}>Code of Conduct</li>
               <li className={styles.ul_li}>Pricing</li>
-              <li className={styles.ul_li}>System Status</li>
+              <li className={styles.ul_li}>
+                <Link href={"https://cclick.instatus.com/"}>System Status</Link>
+              </li>
               <li className={styles.ul_li}>Report Abuse</li>
             </ul>
           </div>
@@ -51,7 +55,9 @@ export default function Footer() {
             <p className={styles.bottom_p}>
               <Link href="/terms">terms of use</Link>
             </p>
-            <p className={styles.bottom_p}>privacy policy</p>
+            <p className={styles.bottom_p}>
+              <Link href="/privacy">privacy policy</Link>
+            </p>
           </div>
         </div>
         <div id="footer-sections"></div>

@@ -4,7 +4,7 @@ import styles from "@/styles/stats.module.css";
 
 export default async function Stats() {
   const paste_count = await db.paste.count();
-  const user_count = await db.user.count();
+  const user_count = 89;
 
   return (
     <div className="stats">

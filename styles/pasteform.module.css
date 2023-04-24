@@ -1,0 +1,14 @@
+.form {
+  background-color: aliceblue;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  padding: 1em 0em;
+  border-radius: 5px;
+  margin-top: 2em;
+}
+
+.label {
+  font-size: 1.2em;
+  padding: 1em;
+}

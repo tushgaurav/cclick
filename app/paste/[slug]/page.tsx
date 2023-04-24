@@ -1,16 +1,17 @@
 import { db } from "@/lib/db";
 import PasteNotFound from "@/components/PasteNotFound";
+import { clerkClient } from "@clerk/nextjs/server";
 
 export default async function PasteView({ params }) {
   const { slug } = params;
+
   const paste = await db.paste.findUnique({
     where: {
       slug: slug,
     },
-    include: {
-      owner: true,
-    },
   });
+
+  const user = await clerkClient.users.getUser(paste?.ownerId);
 
   return (
     <div>
@@ -22,7 +23,7 @@ export default async function PasteView({ params }) {
             <div className="main-content">
               <h1>{paste.name}</h1>
               <div>
-                by {paste.owner.firstName} {paste.owner.lastName}
+                by {user.firstName} {user.lastName}
               </div>
               <div className="line"></div>
               <h1>Content</h1>

@@ -50,6 +50,15 @@ a {
   color: black;
 }
 
+.link {
+  color: var(--color-tertiary);
+  font-weight: 700;
+}
+
+.link:hover {
+  color: var(--color-secondary);
+}
+
 p {
   margin-bottom: 1em;
 }
@@ -65,6 +74,13 @@ p {
   width: 100%;
   background-color: var(--color-tertiary);
   margin: 1em 0;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
 }
 
 main {

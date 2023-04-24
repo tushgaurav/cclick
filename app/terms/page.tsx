@@ -2,6 +2,7 @@ import Section from "@/components/Section";
 import Image from "next/image";
 
 import cloud from "../../public/images/cloud.png";
+import Link from "next/link";
 
 export default function Terms() {
   return (
@@ -46,7 +47,11 @@ export default function Terms() {
             <li>
               We may collect and use certain information about your use of our
               platform in accordance with our privacy policy, which you can read
-              here [link to privacy policy].
+              here{" "}
+              <Link className="link" href="/privacy">
+                Privacy Policy
+              </Link>
+              .
             </li>
             <li>
               Our platform is provided "as is" and we make no representations or

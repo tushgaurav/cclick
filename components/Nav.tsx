@@ -7,9 +7,6 @@ import logo from "../public/logo.svg";
 import styles from "@/styles/nav.module.css";
 
 export default async function Nav() {
-  const user = await currentUser();
-  console.log(user);
-
   return (
     <div className={styles.nav_container}>
       <nav className={styles.nav}>
@@ -42,7 +39,9 @@ export default async function Nav() {
             <SignedIn>
               <UserButton />
             </SignedIn>
-            <SignedOut>Login / Signup</SignedOut>
+            <SignedOut>
+              <Link href="/login">Login/Regi</Link>
+            </SignedOut>
           </li>
         </ul>
       </nav>
