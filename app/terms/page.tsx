@@ -16,7 +16,7 @@ export default function Terms() {
           </p>
         </div>
 
-        <Image src={cloud} alt="cloud" className="cloud" />
+        <Image src={cloud} alt="cloud" className="section-image" />
       </main>
       <Section>
         <div className="section-content">

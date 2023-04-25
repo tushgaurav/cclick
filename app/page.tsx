@@ -1,35 +1,23 @@
 import Image from "next/image";
-import styles from "@/styles/homepage.module.css";
-import Link from "next/link";
-
 import hero_img from "../public/images/hero_image.png";
 import section_img from "../public/images/section-image.png";
-
 import Stats from "@/components/Stats";
 import Button from "@/components/Button";
 import Section from "@/components/Section";
-
-async function getIp() {
-  let data = await fetch("https://api.ipify.org/?format=json");
-  return data.json();
-}
+import Link from "next/link";
 
 export default async function Home() {
-  let ip = await getIp();
-
   return (
     <div className="container">
       <main>
         <div className="main-content">
-          <h1>everyone loves cclick</h1>
+          <h1>Simple Pastebin Service</h1>
           <p>
             Simplify your digital life with our powerful link shortening and
             pasteing tools.
           </p>
           <Button type="primary">
-            <a href="#" className="btn">
-              Get Started
-            </a>
+            <Link href="/new/paste">Get Started</Link>
           </Button>
         </div>
         <Image src={hero_img} alt="hero" className="hero-image" />

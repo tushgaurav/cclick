@@ -40,7 +40,9 @@ export default async function Nav() {
               <UserButton />
             </SignedIn>
             <SignedOut>
-              <Link href="/login">Login/Regi</Link>
+              <Link className="login-btn" href="/login">
+                Register
+              </Link>
             </SignedOut>
           </li>
         </ul>

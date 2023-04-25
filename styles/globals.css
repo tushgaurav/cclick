@@ -19,6 +19,11 @@
   --color-text: #494450;
 }
 
+::selection {
+  color: #3402ff;
+  background: rgb(255, 75, 201);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -99,6 +104,64 @@ main {
 
 .hero-image {
   max-width: 500px;
+}
+
+/* Login Button */
+.login-btn {
+  cursor: pointer;
+  border: 0;
+  border-radius: 2px;
+  font-weight: 700;
+  margin: 0 10px;
+
+  padding: 10px 20px;
+  box-shadow: 0 0 20px rgba(104, 85, 224, 0.2);
+  transition: 0.4s;
+
+  color: black;
+  background-color: var(--color-primary);
+  border: 2px solid var(--color-secondary);
+}
+
+.login-btn:hover {
+  color: white;
+  box-shadow: 0 0 20px rgba(211, 31, 58, 0.6);
+  background-color: var(--color-secondary);
+}
+
+/* For Terms and Conditions, Privacy Policy pages */
+ol li {
+  padding-bottom: 0.5em;
+}
+
+ol {
+  margin-left: 1em;
+}
+
+@media screen and (max-width: 768px) {
+  main {
+    grid-template-columns: 1fr;
+    gap: 2em;
+  }
+
+  .hero-image {
+    width: 100%;
+    height: auto;
+  }
+
+  .section-image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    height: auto;
+  }
+
+  .center {
+    display: block;
+    width: 10;
+    margin: 0 1em;
+  }
 }
 
 /* Section Styles */
