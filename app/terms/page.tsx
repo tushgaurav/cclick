@@ -4,6 +4,13 @@ import Image from "next/image";
 import cloud from "../../public/images/cloud.png";
 import Link from "next/link";
 
+export const metadata = {
+  title: "Terms of Use | cclick",
+  openGraph: {
+    title: "View Terms of Use for cclick",
+  },
+};
+
 export default function Terms() {
   return (
     <div className="container">

@@ -4,6 +4,13 @@ import diffTime from "@/lib/time";
 import styles from "@/styles/paste.module.css";
 import { clerkClient } from "@clerk/nextjs/server";
 
+export const metadata = {
+  title: "Public Pastes | cclick",
+  openGraph: {
+    title: "View Public Pastes made on cclick",
+  },
+};
+
 function PasteCard({ title, description, author, date, slug }) {
   return (
     <Link href={"/paste/" + slug}>
@@ -43,7 +50,11 @@ export default async function PublicPastes() {
               key={paste.id}
               title={paste.name}
               description={paste.content.substring(0, 100) + "..."}
-              author={paste.ownerId ? paste.ownerName : "Anonymous"}
+              author={
+                paste.ownerId
+                  ? paste.ownerName.replace("null", "")
+                  : "Anonymous"
+              }
               date={diffTime(paste.createdAt)}
               slug={paste.slug}
             />

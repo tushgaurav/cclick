@@ -1,6 +1,13 @@
 import Link from "next/link";
 import Section from "@/components/Section";
 
+export const metadata = {
+  title: "Privacy Policy | cclick",
+  openGraph: {
+    title: "View Privacy Policy for cclick",
+  },
+};
+
 export default function PrivacyPolicy() {
   return (
     <div className="container">
