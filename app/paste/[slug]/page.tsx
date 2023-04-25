@@ -4,6 +4,7 @@ import { clerkClient } from "@clerk/nextjs/server";
 
 export default async function PasteView({ params }) {
   const { slug } = params;
+  let user = { firstName: "John", lastName: "Doe" };
 
   let paste = null;
   try {
@@ -13,7 +14,7 @@ export default async function PasteView({ params }) {
       },
     });
 
-    const user = await clerkClient.users.getUser(paste?.ownerId);
+    user = await clerkClient.users.getUser(paste?.ownerId);
   } catch (error) {
     console.log(error);
   }

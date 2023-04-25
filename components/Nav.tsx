@@ -15,7 +15,7 @@ export default async function Nav() {
         </Link>
         <ul className={styles.nav_ul}>
           <li>
-            <Link className={styles.nav_a} href="/paste">
+            <Link className={styles.nav_a} href="/new/paste">
               Paste
             </Link>
           </li>

@@ -40,7 +40,7 @@ export default function Footer() {
               <li className={styles.ul_li}>Code of Conduct</li>
               <li className={styles.ul_li}>Pricing</li>
               <li className={styles.ul_li}>
-                <Link href={"https://cclick.instatus.com/"}>System Status</Link>
+                <Link href={"https://status.cclick.click/"}>System Status</Link>
               </li>
               <li className={styles.ul_li}>Report Abuse</li>
             </ul>
