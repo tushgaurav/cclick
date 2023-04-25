@@ -1,14 +1,79 @@
 .form {
-  background-color: aliceblue;
+  background-color: #f0f0f0;
   display: flex;
   flex-direction: column;
   gap: 1em;
   padding: 1em 0em;
   border-radius: 5px;
   margin-top: 2em;
+  padding: 2em;
 }
 
 .label {
   font-size: 1.2em;
-  padding: 1em;
+
+  margin: 0 0 3px 0;
+  padding: 0px;
+  display: block;
+  font-weight: bold;
+}
+
+.input[type="text"],
+.input[type="date"],
+.input[type="datetime"],
+.input[type="number"],
+.input[type="search"],
+.input[type="time"],
+.input[type="url"],
+.input[type="email"],
+.textarea,
+.select {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  border: 1px solid #bebebe;
+  padding: 7px;
+  margin: 0px;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  outline: none;
+}
+
+.input[type="text"]:focus,
+.input[type="date"]:focus,
+.input[type="datetime"]:focus,
+.input[type="number"]:focus,
+.input[type="search"]:focus,
+.input[type="time"]:focus,
+.input[type="url"]:focus,
+.input[type="email"]:focus,
+.textarea:focus,
+.select:focus {
+  -moz-box-shadow: 0 0 8px var(--color-secondary);
+  -webkit-box-shadow: 0 0 8px var(--color-secondary);
+  box-shadow: 0 0 8px var(--color-secondary);
+  border: 1px solid var(--color-secondary);
+}
+
+.input[type="text"] {
+  width: 49%;
+}
+
+.textarea {
+  width: 100%;
+  height: 40vh;
+}
+.select {
+  height: 40px;
+  /* background: url("img/arrow-down.png") no-repeat right center #fff; */
+  background-size: 20px 20px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.required {
+  color: red;
 }

@@ -134,3 +134,7 @@ button a {
   text-decoration: none;
   color: inherit;
 }
+
+.paste_display {
+  white-space: pre-line;
+}

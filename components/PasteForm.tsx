@@ -1,13 +1,31 @@
 "use client";
 
+import { useState } from "react";
+
+import slugify from "react-slugify";
 import styles from "../styles/pasteform.module.css";
 import { useRouter } from "next/navigation";
 import HoverButton from "./HoverButton";
+import Loading from "@/app/loading";
 
 const PasteForm = (userId: string) => {
+  const [slug, setSlug] = useState("paste_title");
+  const [loading, setLoading] = useState(false);
   const router = useRouter();
 
+  const generateSlug = (e) => {
+    const date = new Date();
+    const day_prefix = date.getDay().toString();
+    setSlug(
+      slugify(e.target.value, {
+        delimiter: "_",
+        prefix: day_prefix,
+      })
+    );
+  };
+
   const handleSubmit = async (e) => {
+    setLoading(true);
     e.preventDefault();
 
     const post = {
@@ -35,41 +53,81 @@ const PasteForm = (userId: string) => {
     }
   };
 
+  if (loading) {
+    return <Loading />;
+  }
+
   return (
     <form onSubmit={handleSubmit} className={styles.form}>
       <div>
-        <label className={styles.label} htmlFor="first">
+        <label
+          title="The title of your paste"
+          className={styles.label}
+          htmlFor="title"
+        >
           Paste Title
         </label>
-        <input type="text" id="title" name="title" />
+        <input
+          className={styles.input}
+          type="text"
+          id="title"
+          name="title"
+          onChange={generateSlug}
+        />
       </div>
 
       <div>
-        <label className={styles.label} htmlFor="content">
-          Content
+        <label
+          title="Enter the text you want to save here"
+          className={styles.label}
+          htmlFor="content"
+        >
+          Content <span className={styles.required}>*</span>
         </label>
-        <input type="text" id="content" name="content" required />
+        <textarea
+          className={styles.textarea}
+          id="content"
+          name="content"
+          required
+        />
       </div>
 
       <div>
-        <label className={styles.label} htmlFor="slug">
-          Slug
+        <label
+          title="Slug is like a username, which is added to the url to display your paste, it needs to be unique."
+          className={styles.label}
+          htmlFor="slug"
+        >
+          Slug <span className={styles.required}>*</span>
         </label>
-        <input type="text" id="slug" name="slug" />
+        <input
+          className={styles.input}
+          type="text"
+          id="slug"
+          name="slug"
+          value={slug}
+          onChange={generateSlug}
+        />
       </div>
 
       <div>
         <label className={styles.label} htmlFor="anonymous">
           Anonomulsy
         </label>
-        <input type="checkbox" name="anonymous" id="anonymous" value="true" />
+        <input
+          className={styles.input}
+          type="checkbox"
+          name="anonymous"
+          id="anonymous"
+          value="true"
+        />
       </div>
 
       <div>
         <label className={styles.label} htmlFor="visibility">
           Visibility
         </label>
-        <select name="visibility" id="visibility">
+        <select className={styles.select} name="visibility" id="visibility">
           <option value="PUBLIC">Public</option>
           <option value="PRIVATE">Private</option>
         </select>

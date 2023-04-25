@@ -37,7 +37,7 @@ export default async function PublicPastes() {
               key={paste.id}
               title={paste.name}
               description={paste.content.substring(0, 100) + "..."}
-              author={paste.owner.firstName}
+              author={paste.ownerId}
               date={diffTime(paste.createdAt)}
               slug={paste.slug}
             />
