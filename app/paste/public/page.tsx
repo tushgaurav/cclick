@@ -2,6 +2,7 @@ import Link from "next/link";
 import { db } from "@/lib/db";
 import diffTime from "@/lib/time";
 import styles from "@/styles/paste.module.css";
+import { clerkClient } from "@clerk/nextjs/server";
 
 function PasteCard({ title, description, author, date, slug }) {
   return (
@@ -23,7 +24,12 @@ export default async function PublicPastes() {
     where: {
       visiblity: "PUBLIC",
     },
-    take: 6,
+    take: 10,
+    orderBy: [
+      {
+        createdAt: "desc",
+      },
+    ],
   });
 
   return (
@@ -37,7 +43,7 @@ export default async function PublicPastes() {
               key={paste.id}
               title={paste.name}
               description={paste.content.substring(0, 100) + "..."}
-              author={paste.ownerId}
+              author={paste.ownerId ? paste.ownerName : "Anonymous"}
               date={diffTime(paste.createdAt)}
               slug={paste.slug}
             />

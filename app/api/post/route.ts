@@ -15,7 +15,8 @@ export async function POST(req: NextRequest) {
         ownerId: body.ownerId,
         visiblity: "PUBLIC",
         slug: body.slug,
-        ownerId: body.ownerId ? body.ownerId : "ANONOMYOUS",
+        ownerId: body.ownerId ? body.ownerId : "Anonymous",
+        ownerName: body.ownerId ? body.ownerName : "Anonymous",
       },
     });
   } catch {

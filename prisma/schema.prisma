@@ -21,7 +21,8 @@ model Paste {
   slug      String    @unique
   visiblity VISIBLITY @default(PUBLIC)
 
-  ownerId String?
+  ownerId   String?
+  ownerName String  @default("Anonymous")
 
   name    String?
   content String

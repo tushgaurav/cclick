@@ -15,7 +15,10 @@ export default async function Paste() {
     <div className="container">
       <h1>Create New Paste</h1>
       <h4>Create a new paste as {user?.firstName}😁</h4>
-      <PasteForm userId={user.id} />
+      <PasteForm
+        userId={user.id}
+        userName={`${user?.firstName} ${user?.lastName}`}
+      />
     </div>
   );
 }

@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation";
 import HoverButton from "./HoverButton";
 import Loading from "@/app/loading";
 
-const PasteForm = (userId: string) => {
+const PasteForm = (userId: string, userName: string) => {
   const [slug, setSlug] = useState("paste_title");
   const [loading, setLoading] = useState(false);
   const router = useRouter();
@@ -35,6 +35,7 @@ const PasteForm = (userId: string) => {
       anonymous: e.target.anonymous.value,
       visibility: e.target.visibility.value,
       ownerId: userId.userId,
+      ownerName: userId.userName,
     };
 
     const jsonData = JSON.stringify(post);
