@@ -3,6 +3,23 @@ import PasteNotFound from "@/components/PasteNotFound";
 import QRCode from "@/components/QRCode";
 import Section from "@/components/Section";
 import { clerkClient } from "@clerk/nextjs/server";
+import type { Metadata } from "next";
+
+export async function getPaste(slug: string) {
+  const paste = await db.paste.findUnique({
+    where: {
+      slug: slug,
+    },
+  });
+
+  return paste;
+}
+
+export async function generateMetadata({ params }): Promise<Metadata> {
+  const { slug } = params;
+  const paste = await getPaste(slug);
+  return { title: `${paste.name} by ${paste?.ownerName} | cclick` };
+}
 
 export default async function PasteView({ params }) {
   const { slug } = params;
@@ -10,11 +27,7 @@ export default async function PasteView({ params }) {
 
   let paste = null;
   try {
-    paste = await db.paste.findUnique({
-      where: {
-        slug: slug,
-      },
-    });
+    paste = await getPaste(slug);
     user = await clerkClient.users.getUser(paste?.ownerId);
   } catch (error) {
     console.log(error);
@@ -22,9 +35,6 @@ export default async function PasteView({ params }) {
 
   return (
     <>
-      <head>
-        <title>{paste?.name} | cclick</title>
-      </head>
       <div>
         {paste == null ? (
           <PasteNotFound />
