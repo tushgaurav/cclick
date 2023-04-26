@@ -11,10 +11,10 @@ export async function getPaste(slug: string) {
       slug: slug,
     },
   });
-
   return paste;
 }
 
+// Generate the page title based on the paste name and owner name
 export async function generateMetadata({ params }): Promise<Metadata> {
   const { slug } = params;
   const paste = await getPaste(slug);
