@@ -1,0 +1,11 @@
+.qr_code {
+  margin-left: 1em;
+}
+
+.qr_code_hidden {
+  display: none;
+}
+
+.qr_code_active {
+  display: block;
+}
