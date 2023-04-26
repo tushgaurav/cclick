@@ -5,6 +5,10 @@
   gap: 1em;
 }
 
+.section p {
+  max-width: 72ch;
+}
+
 @media screen and (max-width: 768px) {
   .section {
     grid-template-columns: 1fr;

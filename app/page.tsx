@@ -1,6 +1,7 @@
 import Image from "next/image";
 import hero_img from "../public/images/hero_image.png";
-import section_img from "../public/images/section-image.png";
+import section_img_1 from "../public/images/section-image-1.png";
+import section_img_2 from "../public/images/section-image-2.png";
 import Stats from "@/components/Stats";
 import Button from "@/components/Button";
 import Section from "@/components/Section";
@@ -11,7 +12,7 @@ export default async function Home() {
     <div className="container">
       <main>
         <div className="main-content">
-          <h1>Simple Pastebin Service</h1>
+          <h1>Store and share your text snippets in a click</h1>
           <p>
             Simplify your digital life with our powerful link shortening and
             pasteing tools.
@@ -25,18 +26,16 @@ export default async function Home() {
 
       <Section>
         <div className="section-content">
-          <h2>Save your pastes at ease.</h2>
+          <h2>Save your pastes at ease</h2>
           <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis,
-            beatae! Eaque ad autem laboriosam qui aspernatur, quidem, odio
-            magni, dicta voluptas consequuntur dolorum earum ipsa iusto mollitia
-            nam veniam at. Illum provident expedita dolore natus dicta
-            praesentium, ab cum ullam deserunt magnam assumenda repellat. Minus
-            minima perferendis iste vel ullam?
+            cclick.click is a simple and service that lets you store and share
+            your text snippets with anyone. Whether you need to share code,
+            notes, logs, or anything else, cclick.click makes it easy and fast.
+            Just paste your text, copy the link, and share it with anyone.
           </p>
         </div>
         <Image
-          src={section_img}
+          src={section_img_1}
           className="section-image"
           alt="section image"
         />
@@ -44,18 +43,15 @@ export default async function Home() {
 
       <Section>
         <div className="section-content">
-          <h2>Save your pastes at ease.</h2>
+          <h2>Store unlimited text snippets</h2>
           <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis,
-            beatae! Eaque ad autem laboriosam qui aspernatur, quidem, odio
-            magni, dicta voluptas consequuntur dolorum earum ipsa iusto mollitia
-            nam veniam at. Illum provident expedita dolore natus dicta
-            praesentium, ab cum ullam deserunt magnam assumenda repellat. Minus
-            minima perferendis iste vel ullam?
+            store unlimited text snippets, share them instantly, highlight
+            syntax, protect with passwords, and more. We always keep adding new
+            features to make your experience better.
           </p>
         </div>
         <Image
-          src={section_img}
+          src={section_img_2}
           className="section-image"
           alt="section image"
         />
