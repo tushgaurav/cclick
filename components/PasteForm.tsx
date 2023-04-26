@@ -13,7 +13,7 @@ const PasteForm = (userId: string, userName: string) => {
   const [loading, setLoading] = useState(false);
   const router = useRouter();
 
-  const generateSlug = (e) => {
+  const generateSlugFromTitle = (e) => {
     const date = new Date();
     const day_prefix = date.getDay().toString();
     setSlug(
@@ -22,6 +22,10 @@ const PasteForm = (userId: string, userName: string) => {
         prefix: day_prefix,
       })
     );
+  };
+
+  const generateSlug = (e) => {
+    setSlug(e.target.value);
   };
 
   const handleSubmit = async (e) => {
@@ -73,7 +77,7 @@ const PasteForm = (userId: string, userName: string) => {
           type="text"
           id="title"
           name="title"
-          onChange={generateSlug}
+          onChange={generateSlugFromTitle}
         />
       </div>
 
