@@ -2,6 +2,7 @@ import Image from "next/image";
 import hero_img from "../public/images/hero_image.png";
 import section_img_1 from "../public/images/section-image-1.png";
 import section_img_2 from "../public/images/section-image-2.png";
+import section_img_3 from "../public/images/section-image-3.png";
 import Stats from "@/components/Stats";
 import Button from "@/components/Button";
 import Section from "@/components/Section";
@@ -18,11 +19,31 @@ export default async function Home() {
             pasteing tools.
           </p>
           <Button type="primary">
-            <Link href="/new/paste">Get Started</Link>
+            <Link href="/new/paste">Create Paste</Link>
           </Button>
         </div>
+
         <Image src={hero_img} alt="hero" className="hero-image" />
       </main>
+
+      <Section>
+        <div className="section-content">
+          <h2>Large public repository of data</h2>
+          <p>
+            Our users post millions of text snippets every day, and we store all
+            of them in our database. You can search for any text snippet and
+            find it in seconds. We also provide an API to access our database.
+          </p>
+          <Button type="secondary">
+            <Link href="/paste/public">Explore Pastes</Link>
+          </Button>
+        </div>
+        <Image
+          src={section_img_3}
+          className="section-image"
+          alt="section image"
+        />
+      </Section>
 
       <Section>
         <div className="section-content">

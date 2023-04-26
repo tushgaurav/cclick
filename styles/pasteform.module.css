@@ -9,6 +9,13 @@
   padding: 2em;
 }
 
+.oneline {
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+  align-items: center;
+}
+
 .label {
   font-size: 1.2em;
 
@@ -76,4 +83,9 @@
 
 .required {
   color: red;
+}
+
+/* quick and dirty fix for hoverbutton alignment */
+.fix {
+  margin-left: -1em;
 }

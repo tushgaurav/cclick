@@ -44,7 +44,11 @@ export default async function PasteView({ params }) {
               <div className="main-content">
                 <h1>{paste.name}</h1>
                 <div>
-                  by {user.firstName} {user.lastName}
+                  by {user?.firstName ? user.firstName : "Anonymous"}
+                  {user?.lastName ? user.lastName : null}
+                  {paste.visiblity === "PRIVATE" ? (
+                    <span className="private">Private</span>
+                  ) : null}
                 </div>
                 <div className="line"></div>
                 <h1>Content</h1>

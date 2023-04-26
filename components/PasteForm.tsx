@@ -37,7 +37,7 @@ const PasteForm = (userId: string, userName: string) => {
       content: e.target.content.value,
       slug: e.target.slug.value,
       anonymous: e.target.anonymous.value,
-      visibility: e.target.visibility.value,
+      visiblity: e.target.visibility.value,
       ownerId: userId.userId,
       ownerName: userId.userName,
     };
@@ -115,20 +115,19 @@ const PasteForm = (userId: string, userName: string) => {
         />
       </div>
 
-      <div>
+      <div className={styles.oneline}>
         <label className={styles.label} htmlFor="anonymous">
-          Anonomulsy
+          Paste Anonymously
         </label>
         <input
           className={styles.input}
           type="checkbox"
           name="anonymous"
           id="anonymous"
-          value="true"
         />
       </div>
 
-      <div>
+      <div className={styles.oneline}>
         <label className={styles.label} htmlFor="visibility">
           Visibility
         </label>
@@ -138,7 +137,7 @@ const PasteForm = (userId: string, userName: string) => {
         </select>
       </div>
 
-      <div>
+      <div className={styles.fix}>
         <HoverButton>Create Paste</HoverButton>
       </div>
     </form>

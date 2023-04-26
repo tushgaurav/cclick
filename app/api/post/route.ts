@@ -8,12 +8,15 @@ export async function POST(req: NextRequest) {
 
   try {
     // add paste to database
+
+    if (body.anonymous === "on") body.ownerId = null;
+    if (body.anonymous === "on") body.ownerName = null;
     const post = await db.paste.create({
       data: {
         name: body.title,
         content: body.content,
         ownerId: body.ownerId,
-        visiblity: "PUBLIC",
+        visiblity: body.visiblity,
         slug: body.slug,
         ownerId: body.ownerId ? body.ownerId : "Anonymous",
         ownerName: body.ownerId ? body.ownerName : "Anonymous",
