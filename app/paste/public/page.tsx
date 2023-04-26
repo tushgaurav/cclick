@@ -14,11 +14,6 @@ export const metadata = {
   },
 };
 
-export async function getServerSideProps(context) {
-  const current = context?.query?.page || "1";
-  return current;
-}
-
 function PasteCard({ title, description, author, date, slug }) {
   return (
     <Link href={"/paste/" + slug}>
