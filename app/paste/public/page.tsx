@@ -2,7 +2,10 @@ import Link from "next/link";
 import { db } from "@/lib/db";
 import diffTime from "@/lib/time";
 import styles from "@/styles/paste.module.css";
-import { clerkClient } from "@clerk/nextjs/server";
+import Pagination from "@/components/Pagination";
+
+// same as in components\Pagination.tsx
+const PER_PAGE = 9;
 
 export const metadata = {
   title: "Public Pastes | cclick",
@@ -10,6 +13,11 @@ export const metadata = {
     title: "View Public Pastes made on cclick",
   },
 };
+
+export async function getServerSideProps(context) {
+  const current = context?.query?.page || "1";
+  return current;
+}
 
 function PasteCard({ title, description, author, date, slug }) {
   return (
@@ -26,12 +34,17 @@ function PasteCard({ title, description, author, date, slug }) {
   );
 }
 
-export default async function PublicPastes() {
+export default async function PublicPastes(current) {
+  const current_page = current.searchParams.page;
+  const paste_count = await db.paste.count();
+
+  const skip = (current_page - 1) * PER_PAGE || 0;
   const pastes = await db.paste.findMany({
     where: {
       visiblity: "PUBLIC",
     },
-    take: 10,
+    skip: skip,
+    take: PER_PAGE,
     orderBy: [
       {
         createdAt: "desc",
@@ -61,6 +74,8 @@ export default async function PublicPastes() {
           ))}
         </div>
       </div>
+
+      <Pagination current={current_page} total={paste_count} />
     </div>
   );
 }
