@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Section from "@/components/Section";
-
 import { delay } from "@/lib/async";
 
 export const metadata = {
