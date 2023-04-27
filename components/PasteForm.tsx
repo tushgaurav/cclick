@@ -36,7 +36,7 @@ const PasteForm = (userId: string, userName: string) => {
       title: e.target.title.value,
       content: e.target.content.value,
       slug: e.target.slug.value,
-      anonymous: e.target.anonymous.value,
+      anonymous: e.target.anonymous.checked,
       visiblity: e.target.visibility.value,
       ownerId: userId.userId,
       ownerName: userId.userName,

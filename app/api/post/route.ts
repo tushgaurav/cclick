@@ -8,9 +8,12 @@ export async function POST(req: NextRequest) {
 
   try {
     // add paste to database
+    if (body.anonymous) {
+      // if user wants to be anonymous
+      body.ownerId = null;
+      body.ownerName = null;
+    }
 
-    if (body.anonymous === "on") body.ownerId = null;
-    if (body.anonymous === "on") body.ownerName = null;
     const post = await db.paste.create({
       data: {
         name: body.title,
@@ -18,8 +21,8 @@ export async function POST(req: NextRequest) {
         ownerId: body.ownerId,
         visiblity: body.visiblity,
         slug: body.slug,
-        ownerId: body.ownerId ? body.ownerId : "Anonymous",
-        ownerName: body.ownerId ? body.ownerName : "Anonymous",
+        ownerId: body.anonymous ? "Anonymous" : body.ownerId,
+        ownerName: body.anonymous ? "Anonymous" : body.ownerName,
       },
     });
   } catch {
