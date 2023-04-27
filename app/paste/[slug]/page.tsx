@@ -5,14 +5,28 @@ import QRCode from "@/components/QRCode";
 import Section from "@/components/Section";
 import { clerkClient } from "@clerk/nextjs/server";
 import type { Metadata } from "next";
-import Checkmark from "@/components/Checkmark";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCheckCircle, faEye } from "@fortawesome/free-solid-svg-icons";
 
 const styles = {
   flex_container: {
     display: "flex",
     flexDirection: "row",
-    gap: "0.5rem",
+    gap: "0.8rem",
     flexWrap: "wrap",
+  },
+
+  group: {
+    display: "flex",
+    alignItems: "center",
+    gap: "0.2rem",
+  },
+
+  fa_icon: {
+    width: "1em",
+    display: "flex",
+    alignItems: "center",
+    color: "#efabab",
   },
 };
 
@@ -22,6 +36,16 @@ export async function getPaste(slug: string) {
       slug: slug,
     },
   });
+
+  await db.paste.update({
+    where: {
+      slug: slug,
+    },
+    data: {
+      views: paste.views + 1,
+    },
+  });
+
   return paste;
 }
 
@@ -60,9 +84,26 @@ export default async function PasteView({ params }) {
               <div className="main-content">
                 <h1>{paste.name}</h1>
                 <div style={styles.flex_container}>
-                  by {user?.firstName ? user.firstName : "Unknown"}{" "}
-                  {user?.lastName ? user.lastName : null}
-                  {verified ? <Checkmark /> : ""}
+                  <div style={styles.group}>
+                    by {user?.firstName ? user.firstName : "Unknown"}{" "}
+                    {user?.lastName ? user.lastName : null}
+                    {verified ? (
+                      <div style={styles.fa_icon}>
+                        <FontAwesomeIcon icon={faCheckCircle} size="2xs" />
+                      </div>
+                    ) : (
+                      ""
+                    )}
+                  </div>
+                  <div style={styles.group}>
+                    <div style={styles.fa_icon}>
+                      <FontAwesomeIcon
+                        icon={faEye}
+                        style={{ color: "black" }}
+                      />{" "}
+                    </div>{" "}
+                    {paste.views} views
+                  </div>
                   {paste.visiblity === "PRIVATE" ? (
                     <span className="private">Private</span>
                   ) : null}
