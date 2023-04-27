@@ -1,9 +1,20 @@
 import { db } from "@/lib/db";
+import { verifyUserById } from "@/lib/verified";
 import PasteNotFound from "@/components/PasteNotFound";
 import QRCode from "@/components/QRCode";
 import Section from "@/components/Section";
 import { clerkClient } from "@clerk/nextjs/server";
 import type { Metadata } from "next";
+import Checkmark from "@/components/Checkmark";
+
+const styles = {
+  flex_container: {
+    display: "flex",
+    flexDirection: "row",
+    gap: "0.5rem",
+    flexWrap: "wrap",
+  },
+};
 
 export async function getPaste(slug: string) {
   const paste = await db.paste.findUnique({
@@ -24,11 +35,16 @@ export async function generateMetadata({ params }): Promise<Metadata> {
 export default async function PasteView({ params }) {
   const { slug } = params;
   let user: any;
+  let verified = false;
 
   let paste = null;
   try {
     paste = await getPaste(slug);
     user = await clerkClient.users.getUser(paste?.ownerId);
+
+    if (verifyUserById(user.id)) {
+      verified = true;
+    }
   } catch (error) {
     console.log(error);
   }
@@ -43,9 +59,10 @@ export default async function PasteView({ params }) {
             <main>
               <div className="main-content">
                 <h1>{paste.name}</h1>
-                <div>
-                  by {user?.firstName ? user.firstName : "Anonymous"}
+                <div style={styles.flex_container}>
+                  by {user?.firstName ? user.firstName : "Unknown"}{" "}
                   {user?.lastName ? user.lastName : null}
+                  {verified ? <Checkmark /> : ""}
                   {paste.visiblity === "PRIVATE" ? (
                     <span className="private">Private</span>
                   ) : null}
