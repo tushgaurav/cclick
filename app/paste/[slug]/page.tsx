@@ -12,6 +12,7 @@ const styles = {
   flex_container: {
     display: "flex",
     flexDirection: "row",
+    alignItems: "baseline",
     gap: "0.8rem",
     flexWrap: "wrap",
   },
