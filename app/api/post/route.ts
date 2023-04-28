@@ -3,8 +3,6 @@ import { db } from "@/lib/db";
 
 export async function POST(req: NextRequest) {
   const body = await req.json();
-  console.log("POST REQUEST BODY:");
-  console.log(body);
 
   try {
     // add paste to database
@@ -25,10 +23,6 @@ export async function POST(req: NextRequest) {
         ownerName: body.anonymous ? "Anonymous" : body.ownerName,
       },
     });
-    console.log("Added paste to database, POST DATA:");
-    console.log(post);
-    console.log("BODY DATA:");
-    console.log(body);
   } catch {
     // if failded to add to database
     return new Response("Failed to add paste to database", {

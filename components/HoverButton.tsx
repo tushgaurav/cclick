@@ -1,8 +1,8 @@
 import styles from "../styles/hoverbtn.module.css";
 
-export default function HoverButton({ children }) {
+export default function HoverButton({ children, disabled }) {
   return (
-    <button className={styles.cta}>
+    <button className={styles.cta} disabled={disabled}>
       <span className={styles.cta_span}>{children}</span>
       <svg
         className={styles.cta_svg}

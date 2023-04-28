@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import slugify from "react-slugify";
 import styles from "../styles/pasteform.module.css";
@@ -12,8 +12,32 @@ const PasteForm = (user) => {
   console.log(user.userId);
 
   const [slug, setSlug] = useState("paste_title");
+  const [slugAvailable, setSlugAvailable] = useState(false); // [slugAvailable, setSlugAvailable
+  const [buttonDisabled, setButtonDisabled] = useState(true); // [buttonDisabled, setButtonDisabled
   const [loading, setLoading] = useState(false);
   const router = useRouter();
+
+  // for each slug change check if the slug is available
+  useEffect(() => {
+    const post = {
+      slug: slug,
+    };
+
+    const jsonData = JSON.stringify(post);
+
+    fetch("/api/available", {
+      method: "POST",
+      body: jsonData,
+    }).then((response) => {
+      if (response.status === 200) {
+        setSlugAvailable(true);
+        setButtonDisabled(false);
+      } else {
+        setSlugAvailable(false);
+        setButtonDisabled(true);
+      }
+    });
+  }, [slug]);
 
   const generateSlugFromTitle = (e) => {
     const date = new Date();
@@ -64,6 +88,10 @@ const PasteForm = (user) => {
     return <Loading />;
   }
 
+  console.log("slug avaialbe - ");
+
+  console.log(slugAvailable);
+
   return (
     <form onSubmit={handleSubmit} className={styles.form}>
       <div>
@@ -105,7 +133,13 @@ const PasteForm = (user) => {
           className={styles.label}
           htmlFor="slug"
         >
-          Slug <span className={styles.required}>*</span>
+          Slug <span className={styles.required}>*</span>{" "}
+          <span className={styles.unique}>unique</span>
+          {slugAvailable ? (
+            <span className={styles.available}>available</span>
+          ) : (
+            <span className={styles.exists}> not available</span>
+          )}
         </label>
         <input
           className={styles.input}
@@ -140,7 +174,7 @@ const PasteForm = (user) => {
       </div>
 
       <div className={styles.fix}>
-        <HoverButton>Create Paste</HoverButton>
+        <HoverButton disabled={buttonDisabled}> Create Paste</HoverButton>
       </div>
     </form>
   );

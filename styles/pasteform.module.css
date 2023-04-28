@@ -85,6 +85,23 @@
   color: red;
 }
 
+.unique {
+  font-size: 0.6em;
+  font-weight: 400;
+  padding-right: 0.5em;
+}
+
+.exists,
+.available {
+  font-size: 0.6em;
+  font-weight: 400;
+  color: red;
+}
+
+.available {
+  color: green;
+}
+
 /* quick and dirty fix for hoverbutton alignment */
 .fix {
   margin-left: -1em;
