@@ -30,9 +30,9 @@ export default async function Nav() {
             </a>
           </li>
           <li>
-            <a className={styles.nav_a} href="#">
+            <Link className={styles.nav_a} href="/contact">
               Contact
-            </a>
+            </Link>
           </li>
           <li>
             <SignedIn>
