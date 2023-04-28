@@ -7,6 +7,7 @@ import Stats from "@/components/Stats";
 import Button from "@/components/Button";
 import Section from "@/components/Section";
 import Link from "next/link";
+import IpAddress from "@/components/IPAddress";
 
 export default async function Home() {
   return (
@@ -79,6 +80,8 @@ export default async function Home() {
       </Section>
 
       <Stats />
+
+      <IpAddress />
     </div>
   );
 }

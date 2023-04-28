@@ -34,7 +34,6 @@ export default async function Nav() {
               Contact
             </a>
           </li>
-          {/* <li id="install-btn">Install</li> */}
           <li>
             <SignedIn>
               <UserButton />
