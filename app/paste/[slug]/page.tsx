@@ -38,14 +38,16 @@ export async function getPaste(slug: string) {
     },
   });
 
-  await db.paste.update({
-    where: {
-      slug: slug,
-    },
-    data: {
-      views: paste.views + 1,
-    },
-  });
+  if (paste) {
+    await db.paste.update({
+      where: {
+        slug: slug,
+      },
+      data: {
+        views: paste.views + 1,
+      },
+    });
+  }
 
   return paste;
 }
@@ -54,6 +56,7 @@ export async function getPaste(slug: string) {
 export async function generateMetadata({ params }): Promise<Metadata> {
   const { slug } = params;
   const paste = await getPaste(slug);
+  if (!paste) return { title: "Paste not found | cclick" };
   return { title: `${paste.name} by ${paste?.ownerName} | cclick` };
 }
 
