@@ -1,5 +1,5 @@
 import Link from "next/link";
-import styles from "@/styles/ShortLink.module.css";
+import styles from "@/styles/shortlink.module.css";
 import Section from "@/components/Section";
 
 export default function ShortLink({
