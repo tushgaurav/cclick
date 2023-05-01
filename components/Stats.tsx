@@ -17,7 +17,7 @@ async function totalViews() {
 }
 
 async function linkShortned() {
-  return await db.link.count();
+  return 1;
 }
 
 async function linkViews() {
