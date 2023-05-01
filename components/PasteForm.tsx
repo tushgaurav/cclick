@@ -3,10 +3,10 @@
 import { useState, useEffect } from "react";
 
 import slugify from "react-slugify";
-import styles from "../styles/pasteform.module.css";
+import styles from "../styles/form.module.css";
 import { useRouter } from "next/navigation";
 import HoverButton from "./HoverButton";
-import Loading from "@/app/loading";
+import Loading from "@/app/(common)/loading";
 
 const PasteForm = (user) => {
   console.log(user.userId);
@@ -25,7 +25,7 @@ const PasteForm = (user) => {
 
     const jsonData = JSON.stringify(post);
 
-    fetch("/api/available", {
+    fetch("/api/available/slug", {
       method: "POST",
       body: jsonData,
     }).then((response) => {
@@ -70,7 +70,7 @@ const PasteForm = (user) => {
 
     const jsonData = JSON.stringify(post);
 
-    const response = await fetch("/api/post", {
+    const response = await fetch("/api/post/paste", {
       method: "POST",
       body: jsonData,
     });

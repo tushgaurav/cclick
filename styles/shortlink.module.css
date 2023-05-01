@@ -1,0 +1,15 @@
+.shortlink {
+  height: 80vh;
+}
+
+.cclick {
+  font-size: 2em;
+}
+
+.cclick_seperator {
+  font-size: 1.2em;
+}
+
+.full_link {
+  max-width: 80ch;
+}

@@ -1,7 +1,7 @@
 import Section from "@/components/Section";
 import Image from "next/image";
 
-import cloud from "../../public/images/cloud.png";
+import cloud from "@/public/images/cloud.png";
 import Link from "next/link";
 
 export const metadata = {

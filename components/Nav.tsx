@@ -20,14 +20,14 @@ export default async function Nav() {
             </Link>
           </li>
           <li>
+            <a className={styles.nav_a} href="/new/link">
+              Link
+            </a>
+          </li>
+          <li>
             <Link className={styles.nav_a} href="/about">
               About
             </Link>
-          </li>
-          <li>
-            <a className={styles.nav_a} href="#">
-              Services
-            </a>
           </li>
           <li>
             <Link className={styles.nav_a} href="/contact">

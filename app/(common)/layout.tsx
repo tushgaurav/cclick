@@ -3,7 +3,7 @@ import { Analytics } from "@vercel/analytics/react";
 
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
-import "../styles/globals.css";
+import "@/styles/globals.css";
 
 export const metadata = {
   title: "cclick | Free Public Pastebin",
@@ -26,7 +26,7 @@ export default function RootLayout({
           <Nav />
           {children}
           <Footer />
-          <Analytics />
+          {/* <Analytics /> */}
         </body>
       </html>
     </ClerkProvider>

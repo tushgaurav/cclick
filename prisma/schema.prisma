@@ -33,3 +33,38 @@ model Paste {
   @@unique([ownerId, slug])
   @@index([slug])
 }
+
+model UserData {
+  id   String   @id @default(uuid())
+  time DateTime @default(now())
+
+  userId   String
+  userName String
+
+  ipAddress String
+  userAgent String
+  location  String?
+  links     Link[]
+}
+
+model Link {
+  id   String   @id @default(uuid())
+  time DateTime @default(now())
+
+  userId   String?
+  userName String  @default("Anonymous")
+
+  userDataId String?
+  userData   UserData? @relation(fields: [userDataId], references: [id])
+
+  link        String
+  name        String
+  backhalf    String  @unique
+  description String?
+  views       Int     @default(0)
+
+  deleted Boolean @default(false)
+
+  @@unique([userId, link])
+  @@index([link])
+}

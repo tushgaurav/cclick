@@ -1,8 +1,8 @@
 import Image from "next/image";
-import getRandomQuote from "../lib/loading";
+import getRandomQuote from "@/lib/loading";
 
-import spinner from "../public/images/spinner.svg";
-import styles from "../styles/loading.module.css";
+import spinner from "@/public/images/spinner.svg";
+import styles from "@/styles/loading.module.css";
 
 export default function Loading() {
   const quote = getRandomQuote();
