@@ -2,11 +2,12 @@ import Image from "next/image";
 import Section from "@/components/Section";
 
 import "@/styles/globals.css";
-import styles from "@/styles/redirect.layout.module.css";
+import spinner from "@/public/images/spinner_redirect.svg";
+import styles from "@/styles/redirect_layout.module.css";
 import Link from "next/link";
 
 export const metadata = {
-  title: "cclick Link Shortener",
+  title: "Redirecting | cclick Link Shortener",
   description: "Link shortener by cclick",
 };
 
@@ -18,23 +19,18 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={styles.body}>
-        <Link href="/">
-          <Image
-            className="center"
-            src="/logo.svg"
-            alt="cclick logo"
-            width={100}
-            height={100}
-          />
-        </Link>
+        <div className={styles.loading_container}>
+          <Image src="/logo.svg" alt="cclick logo" width={100} height={100} />
 
-        <div className="container">
-          <Section>
-            <h1>Redirecting, please wait</h1>
-          </Section>
+          <Image src="/images/spinner_redirect.svg" width={200} height={200} />
+
+          <div className={styles.text}>
+            <h1>Please wait</h1>
+            <h3>Redirecting you to the target site...</h3>
+          </div>
+
+          {children}
         </div>
-
-        {children}
       </body>
     </html>
   );
