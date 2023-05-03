@@ -12,6 +12,7 @@ const publicPaths = [
   "/privacy",
   "/paste/public",
   "/paste/**",
+  "/link/**",
 ];
 
 const isPublic = (path: string) => {
