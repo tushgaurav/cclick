@@ -79,11 +79,7 @@ const LinkForm = () => {
       {loading ? (
         <Loading />
       ) : displayShort ? (
-        <ShortLink
-          link={result.link}
-          fullLink={result.link}
-          backhalf={result.backhalf}
-        />
+        <ShortLink fullLink={result.link} backhalf={result.backhalf} />
       ) : (
         <form onSubmit={handleSubmit} className={styles.form}>
           <h1>Shorten Links</h1>

@@ -1,5 +1,10 @@
 "use client";
 
+// QR Code Component v0.1 by cclick (https://cclick.click)
+// // //
+// Supply a qrdata prop to the component to generate a QR code
+// If no qrdata prop is supplied, the component will generate a QR code for the current page
+
 import { useRef, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import styles from "@/styles/qrcode.module.css";
@@ -38,7 +43,10 @@ const QRCode = (props) => {
     <div className={styles.qr_code}>
       <h2 className={styles.qr_code_title}>
         QR Code
-        <span onClick={qrToggle}> &#x21ba;</span>
+        <span className={styles.show_qr} onClick={qrToggle}>
+          {" "}
+          &#x21ba;
+        </span>
       </h2>
       <div ref={ref} id="qr-code" className={styles.qr_code_hidden}></div>
     </div>

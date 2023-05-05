@@ -120,7 +120,7 @@ export default async function PasteView({ params }) {
             </main>
 
             <Section>
-              <QRCode />
+              <QRCode qrdata="" />
             </Section>
           </div>
         )}
