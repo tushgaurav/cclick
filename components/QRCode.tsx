@@ -5,8 +5,13 @@ import { usePathname } from "next/navigation";
 import styles from "@/styles/qrcode.module.css";
 import options from "../public/misc/qr_options.js";
 
-const QRCode = () => {
+const QRCode = (props) => {
   const pathname = usePathname();
+  let data = props.qrdata;
+
+  if (props.qrdata == "") {
+    data = "https://www.cclick.click/" + pathname;
+  }
 
   const ref = useRef(null);
 
@@ -21,7 +26,7 @@ const QRCode = () => {
       import("qr-code-styling").then(({ default: QRCodeStyling }) => {
         const qrCode = new QRCodeStyling({
           ...options,
-          data: "https://www.cclick.click/" + pathname,
+          data: data,
         });
 
         qrCode.append(ref.current);
