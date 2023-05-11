@@ -1,3 +1,7 @@
+// PasteCard component (LAST CHANGED: 11-05-2023)
+// Props : title, description, author, date, slug
+// Purpose: Display a paste card with the given props
+
 import styles from "@/styles/pastecard.module.css";
 import Link from "next/link";
 

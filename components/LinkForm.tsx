@@ -15,7 +15,7 @@ function generateBackhalf() {
   return backhalf + random;
 }
 
-const LinkForm = () => {
+const LinkForm = ({ userName, userId }) => {
   const [backhalf, setBackhalf] = useState("");
   const [generate, setGenerate] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -24,11 +24,13 @@ const LinkForm = () => {
   const [buttonDisabled, setButtonDisabled] = useState(false); // [buttonDisabled, setButtonDisabled
   const [backhalfAvailable, setBackhalfAvailable] = useState(true); // [backhalfAvailable, setBackhalfAvailable
 
+  console.log(userName, userId);
+
   useEffect(() => {
     setBackhalf(generateBackhalf());
   }, [generate]);
 
-  const checkBackhalfAvailable = async (e) => {
+  const checkBackhalfAvailable = (e) => {
     const backhalf = e.target.value;
     setBackhalf(backhalf);
     const post = {
@@ -59,6 +61,8 @@ const LinkForm = () => {
       title: e.currentTarget.title.value,
       link: e.currentTarget.link.value,
       backhalf: e.currentTarget.backhalf.value,
+      ownerId: userId,
+      ownerName: userName,
     };
 
     const jsonData = JSON.stringify(post);
@@ -115,6 +119,13 @@ const LinkForm = () => {
               name="link"
               required
             />
+          </div>
+
+          <div>
+            <label title="" className={styles.label} htmlFor="slug">
+              Customise Backhalf <span className={styles.required}>*</span>
+            </label>
+            <input type="checkbox" id="generate" name="generate" />
           </div>
 
           <div>
