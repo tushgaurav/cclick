@@ -1,4 +1,6 @@
-import { SignIn, SignUp, currentUser } from "@clerk/nextjs/app-beta";
+// Navbar component (LAST CHANGED: 11-05-2023)
+// Fully responsive navbar with links to all pages and user button
+
 import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs/app-beta";
 
 import Image from "next/image";
@@ -25,6 +27,15 @@ export default async function Nav() {
         </label>
         <ul className={styles.nav_ul}>
           {/* Nav links */}
+
+          <SignedIn>
+            <li>
+              <Link className={styles.nav_a} href="/my">
+                Your Content
+              </Link>
+            </li>
+          </SignedIn>
+
           <li>
             <Link className={styles.nav_a} href="/new/paste">
               Paste
