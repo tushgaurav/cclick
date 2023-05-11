@@ -15,7 +15,7 @@ export const metadata = {
     title: "cclick | Free Public Pastebin",
     description: "cclick is a platform for sharing text snippets online.",
     type: "website",
-    url: "https://cclick.app",
+    url: "https://cclick.cclick",
     images: [
       {
         url: "/images/og-image.png",

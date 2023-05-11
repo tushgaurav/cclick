@@ -32,12 +32,70 @@
   color: black;
 }
 
+.menu_toggle {
+  display: none;
+}
+
+.menu_icon {
+  cursor: pointer;
+  display: none;
+}
+
+.nav_ul {
+  display: flex;
+  gap: 1em;
+  list-style: none;
+  align-items: center;
+}
+
+/* Media query for mobile devices */
 @media screen and (max-width: 768px) {
   .nav {
-    justify-content: center;
+    justify-content: space-between;
   }
 
   .nav_ul {
     display: none;
+  }
+
+  .menu_toggle:checked ~ .nav_ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    position: absolute;
+    top: 10%;
+    left: 0;
+    width: 100%;
+    padding-bottom: 1em;
+    background-color: var(--color-secondary);
+  }
+
+  .menu_toggle:checked ~ .nav_ul li {
+    opacity: 1;
+  }
+
+  .menu_icon {
+    display: block;
+  }
+
+  .menu_icon span {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background-color: black;
+    margin: 5px;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .menu_toggle:checked ~ .menu_icon span:first-child {
+    transform: rotate(-45deg) translate(-4px, 4px);
+  }
+
+  .menu_toggle:checked ~ .menu_icon span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu_toggle:checked ~ .menu_icon span:last-child {
+    transform: rotate(45deg) translate(-4px, -4px);
   }
 }

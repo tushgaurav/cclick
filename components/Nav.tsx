@@ -13,7 +13,18 @@ export default async function Nav() {
         <Link href="/">
           <Image src={logo} alt="" />
         </Link>
+        <input
+          type="checkbox"
+          id="menu-toggle"
+          className={styles.menu_toggle}
+        />
+        <label htmlFor="menu-toggle" className={styles.menu_icon}>
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
         <ul className={styles.nav_ul}>
+          {/* Nav links */}
           <li>
             <Link className={styles.nav_a} href="/new/paste">
               Paste
