@@ -1,5 +1,4 @@
 import { ClerkProvider } from "@clerk/nextjs/app-beta";
-import { Analytics } from "@vercel/analytics/react";
 
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
@@ -26,7 +25,6 @@ export default function RootLayout({
           <Nav />
           {children}
           <Footer />
-          {/* <Analytics /> */}
         </body>
       </html>
     </ClerkProvider>
