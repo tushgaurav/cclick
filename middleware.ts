@@ -13,6 +13,14 @@ const publicPaths = [
   "/paste/public",
   "/paste/**",
   "/link/**",
+
+  // Static assets
+  "/sitemap.xml",
+  "/robots.txt",
+  "/images/**",
+  "/fonts/**",
+  "/logo.svg",
+  "/misc/**",
 ];
 
 const isPublic = (path: string) => {
