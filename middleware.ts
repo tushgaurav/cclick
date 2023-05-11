@@ -13,6 +13,8 @@ const publicPaths = [
   "/paste/public",
   "/paste/**",
   "/link/**",
+  "/new/link",
+  "/api/post/link",
 
   // Static assets
   "/sitemap.xml",

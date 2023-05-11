@@ -13,6 +13,8 @@ export async function POST(req: NextRequest) {
         link: body.link,
         description: "body.description",
         backhalf: body.backhalf,
+        userId: body.ownerId,
+        userName: body.ownerName,
       },
     });
 
