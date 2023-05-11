@@ -11,6 +11,20 @@ export const metadata = {
   icons: {
     icon: "/images/icons/favicon.ico",
   },
+  openGraph: {
+    title: "cclick | Free Public Pastebin",
+    description: "cclick is a platform for sharing text snippets online.",
+    type: "website",
+    url: "https://cclick.app",
+    images: [
+      {
+        url: "/images/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "cclick | Free Public Pastebin",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
