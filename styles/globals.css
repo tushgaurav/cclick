@@ -74,6 +74,12 @@ p {
   padding: 1em;
 }
 
+.button-container {
+  display: flex;
+  gap: 1em;
+  flex-flow: wrap;
+}
+
 .line {
   height: 1px;
   width: 100%;

@@ -1,0 +1,12 @@
+.card_container {
+  display: flex;
+  gap: 1em;
+  flex-wrap: wrap;
+  padding: 1em 0;
+  padding-top: 0em;
+}
+
+.stat_card {
+  background-color: var(--color-secondary, red);
+  padding: 0.5em 3em 0.5em 0.5em;
+}
