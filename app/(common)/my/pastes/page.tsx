@@ -21,6 +21,23 @@ async function getPastes() {
   return pastes;
 }
 
+function NoPastes() {
+  return (
+    <Section>
+      <div>
+        <h1>No pastes yet!</h1>
+        <p>
+          You haven't created any pastes yet. Click the button below to get
+          started.
+        </p>
+        <Link href="/new/paste">
+          <Button>Create Paste</Button>
+        </Link>
+      </div>
+    </Section>
+  );
+}
+
 export default async function MyPastes() {
   const user = await currentUser();
   const pastes = await getPastes();
@@ -30,18 +47,11 @@ export default async function MyPastes() {
   return (
     <div className="container">
       <main>
-        <div>
-          <h1 className="title">Hello, {user?.firstName}! </h1>
-          <p>These are the pastes that you have created.</p>
-        </div>
+        <h1 className="title">Hello, {user?.firstName}! </h1>
       </main>
-      <Section>
-        <div>
-          <h2>Your Pastes</h2>
-        </div>
-      </Section>
 
       <div className={styles.grid_container}>
+        {!pastes.length && NoPastes()}
         {pastes.map((paste) => (
           <PasteCard
             key={paste.id}

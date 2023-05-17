@@ -101,7 +101,6 @@ export default async function My() {
       </Section>
 
       <h3>View all your content</h3>
-
       <div className="button-container">
         <Button>
           <Link href="/my/pastes">View Pastes</Link>
@@ -132,7 +131,7 @@ export default async function My() {
           </div>
 
           <div className={styles.stat_card}>
-            <h1 className="number">{link_views}</h1>
+            <h1 className="number">{link_views ? link_views : 0}</h1>
             <p>Link Views</p>
           </div>
         </div>
