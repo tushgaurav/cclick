@@ -2,6 +2,8 @@ import Section from "@/components/Section";
 import PasteCard from "@/components/PasteCard";
 import styles from "@/styles/paste.module.css";
 import { db } from "@/lib/db";
+import Link from "next/link";
+import Button from "@/components/Button";
 import { currentUser } from "@clerk/nextjs/app-beta";
 
 async function getPastes() {
