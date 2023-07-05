@@ -1,0 +1,11 @@
+.paste_display {
+  white-space: pre-line;
+  background-color: white;
+  padding: 1em;
+  border-radius: 4px;
+}
+
+.section_correction {
+  /* Using this to correct the right marign on the qr code section */
+  padding-left: 1em;
+}

@@ -8,6 +8,9 @@ import type { Metadata } from "next";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheckCircle, faEye } from "@fortawesome/free-solid-svg-icons";
 
+// using css module
+import ext_style from "@/styles/pasteview.module.css";
+
 const styles = {
   flex_container: {
     display: "flex",
@@ -114,14 +117,14 @@ export default async function PasteView({ params }) {
                 </div>
                 <div className="line"></div>
                 <h1>Content</h1>
-                <p className="paste_display">{paste.content}</p>
+                <p className={ext_style.paste_display}>{paste.content}</p>
                 <div className="line"></div>
               </div>
             </main>
 
-            <Section>
+            <div className={ext_style.section_correction}>
               <QRCode qrdata="" />
-            </Section>
+            </div>
           </div>
         )}
       </div>
