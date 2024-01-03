@@ -1,6 +1,7 @@
 .footer_container {
   background-color: var(--color-secondary);
   padding: 1em;
+  /* height: 15vh; */
 }
 
 .footer_container {
