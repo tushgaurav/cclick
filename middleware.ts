@@ -14,6 +14,7 @@ const publicPaths = [
   "/paste/**",
   "/link/**",
   "/new/link",
+  "/new/paste",
   "/api/post/link",
 
   // Static assets

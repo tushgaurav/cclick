@@ -1,5 +1,5 @@
 import PasteForm from "@/components/PasteForm";
-import { currentUser } from "@clerk/nextjs/app-beta";
+import { currentUser } from "@clerk/nextjs";
 import randomEmoji from "@/lib/emoji";
 
 export const metadata = {
