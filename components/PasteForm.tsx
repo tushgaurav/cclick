@@ -11,8 +11,10 @@ import Loading from "@/app/(common)/loading";
 const PasteForm = (user) => {
   console.log(user.userId);
 
+
   const [slug, setSlug] = useState("paste_title");
   const [slugAvailable, setSlugAvailable] = useState(false); // [slugAvailable, setSlugAvailable
+  const [anonymous, setAnonymous] = useState(false); // [anonymous, setAnonymous
   const [buttonDisabled, setButtonDisabled] = useState(true); // [buttonDisabled, setButtonDisabled
   const [loading, setLoading] = useState(false);
   const router = useRouter();
@@ -38,6 +40,15 @@ const PasteForm = (user) => {
       }
     });
   }, [slug]);
+
+  useEffect(() => {
+    if (!user) {
+      setAnonymous(true);
+    } else {
+      setAnonymous(false);
+    }
+  }
+    , [user]);
 
   const generateSlugFromTitle = (e) => {
     const date = new Date();
@@ -160,6 +171,7 @@ const PasteForm = (user) => {
           type="checkbox"
           name="anonymous"
           id="anonymous"
+          checked={anonymous}
         />
       </div>
 

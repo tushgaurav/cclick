@@ -21,8 +21,7 @@ export default async function Paste() {
         Create a new paste as {user?.firstName} {emojiString}
       </h4>
       <PasteForm
-        userId={user?.id}
-        userName={`${user?.firstName} ${user?.lastName}`}
+        user={user}
       />
     </div>
   );
